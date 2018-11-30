@@ -33,19 +33,27 @@ class BooksApp extends React.Component {
     const read = this.state.books.filter((book) => book.shelf === 'read'); 
     const none = this.state.books.filter((book) => book.shelf === 'none');    
     return (
-      <div className="app">
-        < MainPage
-        books={this.state.books}
-        currentlyReading={currentlyReading}
-        wantToRead={wantToRead}
-        read={read}
-        none={none}
-        shelfUpdate={this.shelfUpdate}
+
+        <Route exact path="/" render={() =>(
+            < MainPage
+              books={this.state.books}
+              currentlyReading={currentlyReading}
+              wantToRead={wantToRead}
+              read={read}
+              none={none}
+              shelfUpdate={this.shelfUpdate}
+            />
+          )}
         />
-        <SearchPage
-        books={this.state.books}
-        shelfUpdate={this.shelfUpdate}
-        /> 
+        <Route path="/search" render={()=>(
+
+          <SearchPage
+            books={this.state.books}
+            shelfUpdate={this.shelfUpdate}
+          />
+
+          )}
+        />
       </div>
     )
   }

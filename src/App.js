@@ -33,6 +33,7 @@ class BooksApp extends React.Component {
     const read = this.state.books.filter((book) => book.shelf === 'read'); 
     const none = this.state.books.filter((book) => book.shelf === 'none');    
     return (
+      <div className="app">
 
         <Route exact path="/" render={() =>(
             < MainPage
@@ -54,6 +55,8 @@ class BooksApp extends React.Component {
 
           )}
         />
+
+  
       </div>
     )
   }
